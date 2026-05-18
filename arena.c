@@ -36,7 +36,7 @@ char* arenaAlloc(Arena *arena, size_t allocSize)    {
 }
 
 char* arenaGet(Arena *arena, size_t offset) {
-    if(offset >= arena->offset){
+    if(offset > arena->offset){
         printf("arenaGet: Requested offset outside allocated space. Exiting . . .\n");
         exit(1);
     }
