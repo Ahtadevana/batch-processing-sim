@@ -9,13 +9,13 @@ typedef struct Arena {
     size_t offset;  //could be int or size_t
 } Arena;
 
-Arena arenaInit(size_t arenaSize);
+Arena arena_init(size_t arenaSize);
 
-char* arenaAlloc(Arena *arena, size_t allocSize);
-char* arenaGet(Arena *arena, size_t offset);    //convert offset->ptr
-void arenaReset(Arena *arena);
+char* arena_alloc(Arena *arena, size_t allocSize);
+char* arena_get(Arena *arena, size_t offset);    //convert offset->ptr
+void arena_reset(Arena *arena);
 
-void arenaPrint(Arena *arena);  //per 2 bytes visuallization
-void arenaFree(Arena *arena);
+void arena_print(Arena *arena);  //per 2 bytes visuallization
+void arena_free(Arena *arena);
 
 #endif

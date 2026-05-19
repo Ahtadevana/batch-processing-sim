@@ -3,7 +3,7 @@
 
 #include "arena.h"
 
-Arena arenaInit(size_t arenaSize)   {
+Arena arena_init(size_t arenaSize) {
     char *memoryBlock = (char*)malloc(arenaSize);
     if(!memoryBlock){
         printf("arenaInit: Allocation Failed. Exiting . . .\n");
@@ -18,7 +18,7 @@ Arena arenaInit(size_t arenaSize)   {
     return newArena;
 }
 
-char* arenaAlloc(Arena *arena, size_t allocSize)    {
+char* arena_alloc(Arena *arena, size_t allocSize) {
     if(arena->base == NULL){
         printf("arenaAlloc: Arena uninitiallized.\n");
         return NULL;
@@ -35,7 +35,7 @@ char* arenaAlloc(Arena *arena, size_t allocSize)    {
     return newPtr;
 }
 
-char* arenaGet(Arena *arena, size_t offset) {
+char* arena_get(Arena *arena, size_t offset) {
     if(offset > arena->offset){
         printf("arenaGet: Requested offset outside allocated space. Exiting . . .\n");
         exit(1);
@@ -45,11 +45,11 @@ char* arenaGet(Arena *arena, size_t offset) {
     return offsetPtr;
 }
 
-void arenaReset(Arena *arena)   {
+void arena_reset(Arena *arena) {
     arena->offset = 0;
 }
 
-void arenaPrint(Arena *arena)   {
+void arena_print(Arena *arena) {
     size_t blocks = arena->totalSize / 2; //making it per 2 bytes per square.
 
     printf("\n===\nTotal Size: %zu\n", arena->totalSize);
@@ -74,7 +74,7 @@ void arenaPrint(Arena *arena)   {
     }
 }
 
-void arenaFree(Arena *arena)    {
+void arena_free(Arena *arena) {
     if(arena->base == NULL){
         printf("arenaFree: Arena uninitiallized.\n");
         return;
