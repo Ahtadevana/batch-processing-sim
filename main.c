@@ -2,19 +2,19 @@
 #include "arena.h"
 
 int main()  {
-    Arena mainArena = arenaInit(256);
-    arenaPrint(&mainArena);
+    Arena mainArena = arena_init(256);
+    arena_print(&mainArena);
 
-    arenaAlloc(&mainArena, 128);
-    arenaPrint(&mainArena);
+    arena_alloc(&mainArena, 128);
+    arena_print(&mainArena);
 
-    char *convertedPtr = arenaGet(&mainArena, 64);
+    char *convertedPtr = arena_get(&mainArena, 64);
     printf("\nArena get result test: %p\n", convertedPtr);  //test get
 
-    arenaReset(&mainArena);
-    arenaPrint(&mainArena);
+    arena_reset(&mainArena);
+    arena_print(&mainArena);
 
-    arenaFree(&mainArena);
+    arena_free(&mainArena);
 
     return 0;
 }
