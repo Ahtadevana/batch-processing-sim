@@ -27,7 +27,7 @@ int queue_create(Arena *arena) {
     }
 
     queue_init(queue);
-    char *queueOffset = (char*)queue - arena->base; //queue offset from base
+    int queueOffset = (char*)queue - arena->base; //queue offset from base
     return queueOffset;
 }
 
@@ -42,7 +42,7 @@ int create_job(Arena *arena, int jobId, const char *documentName) {
     newJob->document[31] = '\0';
 
     newJob->next = NULL_OFFSET;
-    char *newJobOffset = (char*)newJob - arena->base;   //job offset from base
+    int newJobOffset = (char*)newJob - arena->base;   //job offset from base
 
     return newJobOffset;
 }
