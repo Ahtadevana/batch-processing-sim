@@ -9,11 +9,11 @@ typedef struct Queue {
     int rear;
 } Queue;
 
-typedef struct printJob {
+typedef struct PrintJob {
     int id;
     char document[32];
     int next;
-} printJob;
+} PrintJob;
 
 void queue_init(Queue *queue);
 int queue_create(Arena *arena);
