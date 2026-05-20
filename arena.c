@@ -54,7 +54,7 @@ void arena_print(Arena *arena) {
 
     printf("\n===\nTotal Size: %zu\n", arena->totalSize);
     printf("Bytes Used: %zu\n", arena->offset);
-    printf("Current Offset Addr: %p\n", arenaGet(arena, arena->offset));
+    printf("Current Offset Addr: %p\n", arena_get(arena, arena->offset));
     printf("===Legend===\n[##]: Used\n[..]: Empty\n===\n");
 
     for(size_t i=0; i < blocks; i++){
@@ -83,6 +83,6 @@ void arena_free(Arena *arena) {
     free(arena->base);
     arena->base = NULL;
 
-    arenaReset(arena);
+    arena_reset(arena);
     arena->totalSize = 0;
 }
