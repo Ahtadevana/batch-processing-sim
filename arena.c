@@ -3,6 +3,15 @@
 
 #include "arena.h"
 
+/*
+Arena arena_init(size_t arenaSize);
+char* arena_alloc(Arena *arena, size_t allocSize);
+char* arena_get(Arena *arena, size_t offset);
+void arena_reset(Arena *arena);
+void arena_print(Arena *arena);
+void arena_free(Arena *arena);
+*/
+
 Arena arena_init(size_t arenaSize) {
     char *memoryBlock = (char*)malloc(arenaSize);
     if(!memoryBlock){
@@ -55,7 +64,7 @@ void arena_print(Arena *arena) {
     printf("\n===\nTotal Size: %zu\n", arena->totalSize);
     printf("Bytes Used: %zu\n", arena->offset);
     printf("Current Offset Addr: %p\n", arena_get(arena, arena->offset));
-    printf("===Legend===\n[##]: Used\n[..]: Empty\n===\n");
+    printf("Legend:\n[##]: Used\n[..]: Empty\n===\n");
 
     for(size_t i=0; i < blocks; i++){
         if(i * 2 < arena->offset){  //before offset
