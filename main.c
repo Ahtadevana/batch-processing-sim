@@ -23,7 +23,8 @@ void process_batch(Arena *arena, Queue *queue, int batchSize);
 int main()  {
     Arena mainArena = arena_init(128);
 
-    int queue = queue_create(&mainArena);
+    int queueOffset = queue_create(&mainArena);
+    Queue *queue = (Queue*)arena_get(&mainArena, queueOffset);  //get my offset to pointer
     arena_print(&mainArena);
 
     int job1 = create_job(&mainArena, 101, "Cat.png");
@@ -33,8 +34,12 @@ int main()  {
     int job4 = create_job(&mainArena, 103, "test.docx");    //alloc past initiallized arenaSize behavior test
     arena_print(&mainArena);
 
-    arena_reset(&mainArena);
-    arena_print(&mainArena);
+    enqueue(&mainArena, queue, job1);
+    enqueue(&mainArena, queue, job2);
+    enqueue(&mainArena, queue, job3);
+
+    enqueue(&mainArena, queue, job4);  //test non existent job
+    display_queue(&mainArena, queue);
 
     arena_free(&mainArena);
     return 0;
