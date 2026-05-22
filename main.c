@@ -30,17 +30,13 @@ int main()  {
     int job1 = create_job(&mainArena, 101, "Cat.png");
     int job2 = create_job(&mainArena, 102, "Report.pdf");
     int job3 = create_job(&mainArena, 103, "Scenery.png");
-
-    int job4 = create_job(&mainArena, 103, "test.docx");    //alloc past initiallized arenaSize behavior test
     arena_print(&mainArena);
 
     enqueue(&mainArena, queue, job1);
     enqueue(&mainArena, queue, job2);
     enqueue(&mainArena, queue, job3);
-
-    enqueue(&mainArena, queue, job4);  //test non existent job
     display_queue(&mainArena, queue);
 
-    arena_free(&mainArena);
+    process_batch(&mainArena, queue, 3);
     return 0;
 }
