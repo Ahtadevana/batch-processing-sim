@@ -18,12 +18,13 @@ typedef struct PrintJob {
 void queue_init(Queue *queue);
 int queue_create(Arena *arena);
 int create_job(Arena *arena, int jobId, const char *documentName);
-void search_job(Arena *arena, Queue *queue, int targetId);
+void search_job(Arena *arena, Queue queue, int targetId);
 
 void enqueue(Arena *arena, Queue *queue, int jobOffset);
 int dequeue(Arena *arena, Queue *queue);
 
-void display_queue(Arena *arena, Queue *queue);
+void display_queue(Arena *arena, Queue queue);
 void process_batch(Arena *arena, Queue *queue, int batchSize);
+void interactive();
 
 #endif
