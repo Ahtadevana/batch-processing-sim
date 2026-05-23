@@ -39,10 +39,10 @@ typedef struct Queue {
 ```
 
 ## Stuff I Use
-IDE: Visual Studio Code
-Compiler: gcc.exe (x86_64-posix-seh-rev0, Built by MinGW-Builds project) 15.2.0
-C standard: 
-Build: No build systems
+- IDE: Visual Studio Code
+- Compiler: gcc.exe (x86_64-posix-seh-rev0, Built by MinGW-Builds project) 15.2.
+- C standard: c23 - `#define __STDC_VERSION__ 202311L`
+- Build: No build systems
 
 ## Notes From Xervii
 I just wanna say first, excuse my bad english in making these readmes. I have my own limitations. This project have teach me a lot. A lot about memory management, basic low level stuff, and hours of debugging skills. Licensing? I don't care about licensing. Feel free to steal it since this is a relatively small project and everyone can make them. But do ur best to credit! I'd luv dat. 
